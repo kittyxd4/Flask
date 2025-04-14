@@ -5,6 +5,7 @@ app.config['DEBUG'] = True
 
 @app.route('/')
 @app.route('/hello')
+
 def hello():
    
    page = """
@@ -12,9 +13,16 @@ def hello():
       <form>
          <button>New Number 1-25</button>
       </form>
+      <a href="/live">Live</a>
    """
    num = random.randint(1, 25)
    return page.format(num)
 
+@app.route('/live')
+def live():
+   some = """
+   <a href="/hello">Hello</a>
+   """
+   return some
 if __name__ == '__main__':
    app.run()
